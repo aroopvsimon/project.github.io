@@ -35,15 +35,15 @@
 <body>
 
     <form onsubmit="addEntry(); return false;">
-        <label for="input1">Description 1:</label>
+        <label for="input1">Enter Number Of Servers:</label>
         <input type="text" id="input1" required>
         <br>
 
-        <label for="input2">Description 2:</label>
+        <label for="input2">Enter Number Of CPU per Server:</label>
         <input type="text" id="input2" required>
         <br>
 
-        <label for="input3">Description 3:</label>
+        <label for="input3">Enter Number Of Cores per CPU:</label>
         <input type="text" id="input3" required>
         <br>
 
@@ -53,9 +53,9 @@
     <table id="data-table">
         <thead>
             <tr>
-                <th>Description 1</th>
-                <th>Description 2</th>
-                <th>Description 3</th>
+                <th>Enter Number Of Servers:</th>
+                <th>Enter Number Of CPU per Server:</th>
+                <th>Enter Number Of Cores per CPU:</th>
             </tr>
         </thead>
         <tbody>
