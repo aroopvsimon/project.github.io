@@ -5,6 +5,8 @@ function addRow() {
 
     for (var i = 0; i < columnsCount; i++) {
         var cell = newRow.insertCell(i);
-        cell.innerHTML = '<input type="text">';
+        var input = document.createElement('input');
+        input.type = 'text';
+        cell.appendChild(input);
     }
 }
