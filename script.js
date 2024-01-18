@@ -1,15 +1,10 @@
-function appendToDisplay(value) {
-    document.getElementById('display').value += value;
-}
+function addRow() {
+    var table = document.getElementById('data-table');
+    var newRow = table.insertRow(table.rows.length);
+    var columnsCount = table.rows[0].cells.length;
 
-function clearDisplay() {
-    document.getElementById('display').value = '';
-}
-
-function calculate() {
-    try {
-        document.getElementById('display').value = eval(document.getElementById('display').value);
-    } catch (error) {
-        document.getElementById('display').value = 'Error';
+    for (var i = 0; i < columnsCount; i++) {
+        var cell = newRow.insertCell(i);
+        cell.innerHTML = '<input type="text">';
     }
 }
