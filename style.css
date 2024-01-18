@@ -1,18 +1,6 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
-}
-
 table {
-    width: 100%;
     border-collapse: collapse;
+    width: 50%;
     margin-top: 20px;
 }
 
@@ -20,10 +8,4 @@ th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px;
-    cursor: pointer;
 }
