@@ -31,6 +31,11 @@ form button {
     cursor: pointer;
 }
 
+/* Style the Export to PDF button */
+form button:last-child {
+    background-color: #007BFF; /* You can customize the color */
+}
+
 /* Style the tables */
 table {
     width: 100%;
