@@ -38,10 +38,8 @@
         storageInTiBCell.textContent = storageInTiB.toFixed(2);
 
         // Update summary table
-        summaryRow.cells[0].textContent = calculateTotal('Total Raw Storage Capacity Per Node in TiB');
-        summaryRow.cells[1].textContent = calculateTotal('Total number of cores per Node');
-        summaryRow.cells[2].textContent = calculateTotal('Total Raw Storage Capacity Per Node in TiB') / 1.1;
-        
+        updateSummaryTable();
+
         // Clear input fields after adding entry
         cpusInput.value = '';
         coresInput.value = '';
@@ -49,12 +47,25 @@
         sizeInput.value = '';
     }
 
-    function calculateTotal(columnName) {
+    function updateSummaryTable() {
         var table = document.getElementById('data-table');
-        var total = 0;
+        var summaryTable = document.getElementById('summary-table');
+        var summaryRow = summaryTable.rows[1];
+
+        var totalRawStorage = 0;
+        var totalCoresForLicenses = 0;
+
         for (var i = 1; i < table.rows.length; i++) {
-            total += parseFloat(table.rows[i].cells[table.rows[0].cells.length - 1].textContent);
+            var row = table.rows[i];
+            totalRawStorage += parseFloat(row.cells[5].textContent);
+            totalCoresForLicenses += parseFloat(row.cells[3].textContent);
         }
-        return total.toFixed(2);
+
+        var vcfStorageEntitled = totalRawStorage / 1.1;
+
+        // Update summary table cells
+        summaryRow.cells[0].textContent = totalRawStorage.toFixed(2);
+        summaryRow.cells[1].textContent = totalCoresForLicenses.toFixed(2);
+        summaryRow.cells[2].textContent = vcfStorageEntitled.toFixed(2);
     }
 </script>
