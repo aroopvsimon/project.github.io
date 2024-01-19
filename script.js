@@ -96,6 +96,9 @@ function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     valueCell.textContent = '';  // You can set the value cell if needed
 
     // Add user variables and inputs to the third table
+    newRow = table.insertRow(table.rows.length);
+    variableCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
     variableCell.textContent = 'Total Number of CPU per node';
     valueCell.textContent = cpus;
 
@@ -123,3 +126,4 @@ function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     variableCell.textContent = 'Number of Years For Which Quote Required';
     valueCell.textContent = quoteYears;
 }
+
