@@ -86,13 +86,12 @@ function updateSummaryTable() {
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     var table = document.getElementById('user-inputs-table');
-    
     var newRow = table.insertRow(table.rows.length);
     var inputsCell = newRow.insertCell(0);
     var valueCell = newRow.insertCell(1);
 
     // Add user variables and inputs to the third table
-    newRow = table.insertRow(table.rows.length);
+    //newRow = table.insertRow(table.rows.length);
     inputsCell = newRow.insertCell(0);
     valueCell = newRow.insertCell(1);
     inputsCell.textContent = 'Total Number of CPU per node';
