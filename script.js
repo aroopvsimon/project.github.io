@@ -93,7 +93,7 @@ function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
         var headerCell = headerRow.insertCell(0);
 
         // Set the header cell
-        headerCell.textContent = 'Inputs Provided';
+        headerCell.textContent = 'Inputs Providd';
     }    
     var newRow = table.insertRow(table.rows.length);
     var variableCell = newRow.insertCell(0);
