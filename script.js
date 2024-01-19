@@ -86,14 +86,18 @@ function updateSummaryTable() {
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     var table = document.getElementById('user-inputs-table');
-    var newRow = table.insertRow(table.rows.length);
+    
+    // Add header row if it doesn't exist
+    if (table.rows.length === 0) {
+        var headerRow = table.insertRow(0);
+        var headerCell = headerRow.insertCell(0);
 
+        // Set the header cell
+        headerCell.textContent = 'Inputs Provided';
+    }    
+    var newRow = table.insertRow(table.rows.length);
     var variableCell = newRow.insertCell(0);
     var valueCell = newRow.insertCell(1);
-
-    // Change the title from 'Variable' to 'Inputs Provided'
-    variableCell.textContent = 'Inputs Provided';
-    valueCell.textContent = '';  // You can set the value cell if needed
 
     // Add user variables and inputs to the third table
     newRow = table.insertRow(table.rows.length);
