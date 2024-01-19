@@ -33,13 +33,13 @@ button:hover {
 
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 80%;
     margin-top: 20px;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
 }
 

@@ -10,8 +10,12 @@
 <body>
 
     <form id="userForm">
-        <label for="cores">Cores per Processor:</label>
+        <label for="cores">Number of Cores per CPU (per Node):</label>
         <input type="number" id="cores" required>
+        <br>
+
+        <label for="cpus">Total Number of CPU per node:</label>
+        <input type="number" id="cpus" required>
         <br>
 
         <label for="drives">Count of capacity drives:</label>
@@ -28,9 +32,12 @@
     <table id="data-table">
         <thead>
             <tr>
-                <th>Cores per Processor</th>
-                <th>Count of capacity drives</th>
-                <th>Size of each capacity drive in TB</th>
+                <th>Node</th>
+                <th>Number of Cores per CPU (per Node)</th>
+                <th>Total Number of CPU per node</th>
+                <th>Total number of cores per Node</th>
+                <th>Total Raw Storage Capacity Per Node</th>
+                <th>Total Raw Storage Capacity Per Node in TiB</th>
             </tr>
         </thead>
         <tbody>
@@ -41,26 +48,43 @@
     <script>
         function addRow() {
             var coresInput = document.getElementById('cores');
+            var cpusInput = document.getElementById('cpus');
             var drivesInput = document.getElementById('drives');
             var sizeInput = document.getElementById('size');
 
             var cores = parseInt(coresInput.value) < 16 ? 16 : parseInt(coresInput.value);
+            var cpus = parseInt(cpusInput.value);
             var drives = parseInt(drivesInput.value);
             var size = parseInt(sizeInput.value);
 
             var table = document.getElementById('data-table');
             var newRow = table.insertRow(table.rows.length);
 
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var cell3 = newRow.insertCell(2);
+            var nodeCell = newRow.insertCell(0);
+            var coresCell = newRow.insertCell(1);
+            var cpusCell = newRow.insertCell(2);
+            var totalCoresCell = newRow.insertCell(3);
+            var totalStorageCell = newRow.insertCell(4);
+            var storageInTiBCell = newRow.insertCell(5);
 
-            cell1.textContent = cores;
-            cell2.textContent = drives;
-            cell3.textContent = size;
+            // Calculate total cores and total storage
+            var totalCores = cpus * cores;
+            var totalStorage = drives * size;
+
+            // Calculate storage in TiB
+            var storageInTiB = totalStorage / 1.1;
+
+            // Set cell values
+            nodeCell.textContent = 'Node' + (table.rows.length - 1);
+            coresCell.textContent = cores;
+            cpusCell.textContent = cpus;
+            totalCoresCell.textContent = totalCores;
+            totalStorageCell.textContent = totalStorage;
+            storageInTiBCell.textContent = storageInTiB.toFixed(2);
 
             // Clear input fields after adding entry
             coresInput.value = '';
+            cpusInput.value = '';
             drivesInput.value = '';
             sizeInput.value = '';
         }

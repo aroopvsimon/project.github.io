@@ -1,69 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>User Input Table</title>
-</head>
-<body>
+<script>
+    function addRow() {
+        var coresInput = document.getElementById('cores');
+        var cpusInput = document.getElementById('cpus');
+        var drivesInput = document.getElementById('drives');
+        var sizeInput = document.getElementById('size');
 
-    <form id="userForm">
-        <label for="cores">Cores per Processor:</label>
-        <input type="number" id="cores" required>
-        <br>
+        var cores = parseInt(coresInput.value) < 16 ? 16 : parseInt(coresInput.value);
+        var cpus = parseInt(cpusInput.value);
+        var drives = parseInt(drivesInput.value);
+        var size = parseInt(sizeInput.value);
 
-        <label for="drives">Count of capacity drives:</label>
-        <input type="number" id="drives" required>
-        <br>
+        var table = document.getElementById('data-table');
+        var newRow = table.insertRow(table.rows.length);
 
-        <label for="size">Size of each capacity drive in TB:</label>
-        <input type="number" id="size" required>
-        <br>
+        var nodeCell = newRow.insertCell(0);
+        var coresCell = newRow.insertCell(1);
+        var cpusCell = newRow.insertCell(2);
+        var totalCoresCell = newRow.insertCell(3);
+        var totalStorageCell = newRow.insertCell(4);
+        var storageInTiBCell = newRow.insertCell(5);
 
-        <button type="button" onclick="addRow()">Add to Table</button>
-    </form>
+        // Calculate total cores and total storage
+        var totalCores = cpus * cores;
+        var totalStorage = drives * size;
 
-    <table id="data-table">
-        <thead>
-            <tr>
-                <th>Cores per Processor</th>
-                <th>Count of capacity drives</th>
-                <th>Size of each capacity drive in TB</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Table entries will be added dynamically -->
-        </tbody>
-    </table>
+        // Calculate storage in TiB
+        var storageInTiB = totalStorage / 1.1;
 
-    <script>
-        function addRow() {
-            var coresInput = document.getElementById('cores');
-            var drivesInput = document.getElementById('drives');
-            var sizeInput = document.getElementById('size');
+        // Set cell values
+        nodeCell.textContent = 'Node' + (table.rows.length - 1);
+        coresCell.textContent = cores;
+        cpusCell.textContent = cpus;
+        totalCoresCell.textContent = totalCores;
+        totalStorageCell.textContent = totalStorage;
+        storageInTiBCell.textContent = storageInTiB.toFixed(2);
 
-            var cores = parseInt(coresInput.value) < 16 ? 16 : parseInt(coresInput.value);
-            var drives = parseInt(drivesInput.value);
-            var size = parseInt(sizeInput.value);
-
-            var table = document.getElementById('data-table');
-            var newRow = table.insertRow(table.rows.length);
-
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var cell3 = newRow.insertCell(2);
-
-            cell1.textContent = cores;
-            cell2.textContent = drives;
-            cell3.textContent = size;
-
-            // Clear input fields after adding entry
-            coresInput.value = '';
-            drivesInput.value = '';
-            sizeInput.value = '';
-        }
-    </script>
-</body>
-</html>
+        // Clear input fields after adding entry
+        coresInput.value = '';
+        cpusInput.value = '';
+        drivesInput.value = '';
+        sizeInput.value = '';
+    }
+</script>
