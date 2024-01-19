@@ -8,7 +8,7 @@ function addRow() {
     var cpus = parseInt(cpusInput.value);
     var cores = parseInt(coresInput.value) < 16 ? 16 : parseInt(coresInput.value);
     var drives = parseInt(drivesInput.value);
-    var size = parseInt(sizeInput.value);
+    var size = parseFloat(sizeInput.value);
     var quoteYears = parseInt(quoteYearsSelect.value);
 
     var table = document.getElementById('data-table');
