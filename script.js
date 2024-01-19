@@ -60,10 +60,8 @@ function updateSummaryTable() {
         totalCoresForLicenses += parseFloat(row.cells[3].textContent);
     }
 
-    var vcfStorageEntitled = totalRawStorage / 1.1;
-
     // Update summary table cells
     summaryRow.cells[0].textContent = totalRawStorage.toFixed(2);
     summaryRow.cells[1].textContent = totalCoresForLicenses.toFixed(2);
-    summaryRow.cells[2].textContent = vcfStorageEntitled.toFixed(2);
+    summaryRow.cells[2].textContent = totalCoresForLicenses.toFixed(2); // Updated to match the sum of 'Total number of cores per Node'
 }
