@@ -1,24 +1,24 @@
 function addRow() {
-    var nameInput = document.getElementById('name');
-    var ageInput = document.getElementById('age');
+    var nameInput = document.getElementById('cpu');
+    var ageInput = document.getElementById('cores');
 
-    var name = nameInput.value;
-    var age = ageInput.value;
+    var cpu = nameInput.value;
+    var cores = ageInput.value;
 
-    if (name && age) {
+    if (cpu && cores) {
         var table = document.getElementById('data-table');
         var newRow = table.insertRow(table.rows.length);
 
         var cell1 = newRow.insertCell(0);
         var cell2 = newRow.insertCell(1);
 
-        cell1.textContent = name;
-        cell2.textContent = age;
+        cell1.textContent = cpu;
+        cell2.textContent = cores;
 
         // Clear input fields after adding entry
         nameInput.value = '';
         ageInput.value = '';
     } else {
-        alert('Please enter both name and age.');
+        alert('Please enter both cpu and cores.');
     }
 }
