@@ -74,3 +74,19 @@ th {
     background-color: #007BFF;
     color: white;
 }
+
+/* Adjustments for the new table */
+#vsan-add-on-capacity-table {
+    margin-top: 20px;
+}
+
+#vsan-add-on-capacity-table th, #vsan-add-on-capacity-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#vsan-add-on-capacity-table th {
+    background-color: #f2f2f2;
+}
+

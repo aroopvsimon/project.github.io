@@ -121,3 +121,43 @@ function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     inputsCell.textContent = 'Number of Years For Which Quote Required';
     valueCell.textContent = quoteYears;
 }
+
+// Add a new single-row, three-column table for 'vSAN Add-On Capacity'
+function addVsanCapacityTable(addonCapacity) {
+    var vsanTable = document.getElementById('vsan-add-on-capacity-table');
+
+    // Add header row if it doesn't exist
+    if (vsanTable.rows.length === 0) {
+        var headerRow = vsanTable.insertRow(0);
+        var header1 = headerRow.insertCell(0);
+        var header2 = headerRow.insertCell(1);
+        var header3 = headerRow.insertCell(2);
+
+        // Set header cells
+        header1.textContent = 'vSAN Add-On Capacity';
+        header2.textContent = 'Add-On Required?';
+        header3.textContent = 'Difference (TiB)';
+    }
+
+    // Add a new row
+    var newRow = vsanTable.insertRow(vsanTable.rows.length);
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+
+    // Set cell values based on the condition
+    cell1.textContent = addonCapacity.label;
+    cell2.textContent = addonCapacity.required ? 'Yes' : 'No';
+    cell3.textContent = addonCapacity.difference.toFixed(2);
+}
+
+// Function to calculate vSAN Add-On Capacity
+function calculateVsanAddOnCapacity(totalRawStorage, vcfStorageEntitled) {
+    var addonCapacity = {
+        label: 'vSAN Add-On Capacity',
+        required: totalRawStorage > vcfStorageEntitled,
+        difference: Math.max(0, totalRawStorage - vcfStorageEntitled)
+    };
+
+    addVsanCapacityTable(addonCapacity);
+}
