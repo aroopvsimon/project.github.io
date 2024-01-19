@@ -35,7 +35,7 @@ function addRow() {
     coresCell.textContent = cores;
     cpusCell.textContent = cpus;
     totalCoresCell.textContent = totalCores;
-    totalStorageCell.textContent = totalStorage;
+    totalStorageCell.textContent = totalStorage.toFixed(2); // Use toFixed to ensure 2 decimal places
     storageInTiBCell.textContent = storageInTiB.toFixed(2);
 
     // Update summary table
