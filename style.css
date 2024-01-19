@@ -43,4 +43,8 @@ th, td {
     text-align: left;
 }
 
+#summary-table {
+    margin-top: 20px;
+}
+
 /* Add more styles as needed */
