@@ -87,47 +87,38 @@ function updateSummaryTable() {
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     var table = document.getElementById('user-inputs-table');
     
-    // Add header row if it doesn't exist
-    if (table.rows.length === 0) {
-        var headerRow = table.insertRow(0);
-        var headerCell = headerRow.insertCell(0);
-
-        // Set the header cell
-        headerCell.textContent = 'Inputs Providd';
-    }    
     var newRow = table.insertRow(table.rows.length);
-    var variableCell = newRow.insertCell(0);
+    var inputsCell = newRow.insertCell(0);
     var valueCell = newRow.insertCell(1);
 
     // Add user variables and inputs to the third table
     newRow = table.insertRow(table.rows.length);
-    variableCell = newRow.insertCell(0);
+    inputsCell = newRow.insertCell(0);
     valueCell = newRow.insertCell(1);
-    variableCell.textContent = 'Total Number of CPU per node';
+    inputsCell.textContent = 'Total Number of CPU per node';
     valueCell.textContent = cpus;
 
     newRow = table.insertRow(table.rows.length);
-    variableCell = newRow.insertCell(0);
+    inputsCell = newRow.insertCell(0);
     valueCell = newRow.insertCell(1);
-    variableCell.textContent = 'Number of Cores per CPU (per Node)';
+    inputsCell.textContent = 'Number of Cores per CPU (per Node)';
     valueCell.textContent = cores;
 
     newRow = table.insertRow(table.rows.length);
-    variableCell = newRow.insertCell(0);
+    inputsCell = newRow.insertCell(0);
     valueCell = newRow.insertCell(1);
-    variableCell.textContent = 'Count of capacity drives per Node';
+    inputsCell.textContent = 'Count of capacity drives per Node';
     valueCell.textContent = drives;
 
     newRow = table.insertRow(table.rows.length);
-    variableCell = newRow.insertCell(0);
+    inputsCell = newRow.insertCell(0);
     valueCell = newRow.insertCell(1);
-    variableCell.textContent = 'Size of each capacity drive in TB per Node';
+    inputsCell.textContent = 'Size of each capacity drive in TB per Node';
     valueCell.textContent = size;
 
     newRow = table.insertRow(table.rows.length);
-    variableCell = newRow.insertCell(0);
+    inputsCell = newRow.insertCell(0);
     valueCell = newRow.insertCell(1);
-    variableCell.textContent = 'Number of Years For Which Quote Required';
+    inputsCell.textContent = 'Number of Years For Which Quote Required';
     valueCell.textContent = quoteYears;
 }
-
