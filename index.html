@@ -26,6 +26,14 @@
         <input type="number" id="size" required>
         <br>
 
+        <label for="quoteYears">Number of Years For Which Quote Required:</label>
+        <select id="quoteYears">
+            <option value="1">1 Year</option>
+            <option value="3">3 Years</option>
+            <option value="5">5 Years</option>
+        </select>
+        <br>
+
         <button type="button" onclick="addRow()">Add to Node Table</button>
     </form>
 
@@ -48,9 +56,9 @@
     <table id="summary-table">
         <thead>
             <tr>
-                <th>Total Raw Storage in TiB</th>
+                <th>Total Raw Storage in TiB Required by Customer</th>
                 <th>Total number of Cores requiring Licenses</th>
-                <th>VCF Storage Entitled in TiB</th>
+                <th>VCF Storage Entitled based on total number of cores licensed (in TiB)</th>
             </tr>
         </thead>
         <tbody>

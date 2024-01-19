@@ -3,11 +3,13 @@ function addRow() {
     var coresInput = document.getElementById('cores');
     var drivesInput = document.getElementById('drives');
     var sizeInput = document.getElementById('size');
+    var quoteYearsSelect = document.getElementById('quoteYears');
 
     var cpus = parseInt(cpusInput.value);
     var cores = parseInt(coresInput.value) < 16 ? 16 : parseInt(coresInput.value);
     var drives = parseInt(drivesInput.value);
     var size = parseInt(sizeInput.value);
+    var quoteYears = parseInt(quoteYearsSelect.value);
 
     var table = document.getElementById('data-table');
     var summaryTable = document.getElementById('summary-table');
@@ -44,6 +46,7 @@ function addRow() {
     coresInput.value = '';
     drivesInput.value = '';
     sizeInput.value = '';
+    quoteYearsSelect.value = '1'; // Reset dropdown to default value
 }
 
 function updateSummaryTable() {
