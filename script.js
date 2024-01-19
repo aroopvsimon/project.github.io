@@ -91,6 +91,10 @@ function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     var variableCell = newRow.insertCell(0);
     var valueCell = newRow.insertCell(1);
 
+    // Change the title from 'Variable' to 'Inputs Provided'
+    variableCell.textContent = 'Inputs Provided';
+    valueCell.textContent = '';  // You can set the value cell if needed
+
     // Add user variables and inputs to the third table
     variableCell.textContent = 'Total Number of CPU per node';
     valueCell.textContent = cpus;
