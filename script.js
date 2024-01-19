@@ -27,11 +27,14 @@ function addRow() {
     // Add the row data to the array
     userData.push(rowData);
 
-    // Add the row to the table
+    // Add the row to the first table
     addRowToTable(rowData);
 
-    // Update summary table
+    // Add a row to the second table (summary table)
     updateSummaryTable();
+
+    // Add a row to the third table (user variables and inputs)
+    addUserInputsToTable(cpus, cores, drives, size, quoteYears);
 
     // Clear input fields after adding entry
     cpusInput.value = '';
@@ -81,26 +84,38 @@ function updateSummaryTable() {
     summaryRow.cells[2].textContent = totalCoresForLicenses.toFixed(2); // Updated to match the sum of 'Total number of cores per Node'
 }
 
-// Function to export data to PDF (assuming jsPDF is included)
-function exportToPDF() {
-    var doc = new jsPDF();
-   
-    // Add content to the PDF
-    doc.text('User Inputs:', 10, 10);
-    
-    for (var i = 0; i < userData.length; i++) {
-        var rowData = userData[i];
-        doc.text('Node: ' + rowData.node, 10, 20 + i * 10);
-        doc.text('Number of Cores per CPU: ' + rowData.cores, 10, 30 + i * 10);
-        doc.text('Total Number of CPU: ' + rowData.cpus, 10, 40 + i * 10);
-        doc.text('Total number of cores per Node: ' + rowData.totalCores, 10, 50 + i * 10);
-        doc.text('Total Raw Storage Capacity Per Node: ' + rowData.totalStorage.toFixed(2), 10, 60 + i * 10);
-        doc.text('Total Raw Storage Capacity Per Node in TiB: ' + rowData.storageInTiB.toFixed(2), 10, 70 + i * 10);
-        
-        // Add a line break
-        doc.text('', 10, 80 + i * 10);
-    }
+function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
+    var table = document.getElementById('user-inputs-table');
+    var newRow = table.insertRow(table.rows.length);
 
-    // Save the PDF
-    doc.save('exported_data.pdf');
+    var variableCell = newRow.insertCell(0);
+    var valueCell = newRow.insertCell(1);
+
+    // Add user variables and inputs to the third table
+    variableCell.textContent = 'Total Number of CPU per node';
+    valueCell.textContent = cpus;
+
+    newRow = table.insertRow(table.rows.length);
+    variableCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    variableCell.textContent = 'Number of Cores per CPU (per Node)';
+    valueCell.textContent = cores;
+
+    newRow = table.insertRow(table.rows.length);
+    variableCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    variableCell.textContent = 'Count of capacity drives per Node';
+    valueCell.textContent = drives;
+
+    newRow = table.insertRow(table.rows.length);
+    variableCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    variableCell.textContent = 'Size of each capacity drive in TB per Node';
+    valueCell.textContent = size;
+
+    newRow = table.insertRow(table.rows.length);
+    variableCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    variableCell.textContent = 'Number of Years For Which Quote Required';
+    valueCell.textContent = quoteYears;
 }

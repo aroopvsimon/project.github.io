@@ -56,3 +56,26 @@ th {
     background-color: #4caf50;
     color: white;
 }
+
+/* Add some space between tables */
+table {
+    margin-bottom: 20px;
+}
+
+/* Style the third table (user inputs) */
+#user-inputs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#user-inputs-table th, #user-inputs-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#user-inputs-table th {
+    background-color: #007BFF;
+    color: white;
+}
