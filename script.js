@@ -153,6 +153,8 @@ function addVsanCapacityTable(addonCapacity) {
 
 // Function to calculate vSAN Add-On Capacity
 function calculateVsanAddOnCapacity(totalRawStorage, vcfStorageEntitled) {
+    console.log('Total Raw Storage:', totalRawStorage);
+    console.log('VCF Storage Entitled:', vcfStorageEntitled);
     var addonCapacity = {
         label: 'vSAN Add-On Capacity',
         required: totalRawStorage > vcfStorageEntitled,
