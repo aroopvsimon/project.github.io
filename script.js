@@ -82,16 +82,16 @@ function updateSummaryTable() {
     summaryRow.cells[0].textContent = totalRawStorage.toFixed(2);
     summaryRow.cells[1].textContent = totalCoresForLicenses.toFixed(2);
     
+    // Update VCF Storage Entitled cell
+    summaryRow.cells[2].textContent = totalCoresForLicenses.toFixed(2);
+    
     // Calculate and set vSAN Add On Capacity Required and Difference
     var vsanAddOnCapacityRequiredCell = summaryRow.cells[2];
     var difference = totalRawStorage - totalCoresForLicenses;
 
     vsanAddOnCapacityRequiredCell.textContent = difference > 0 ? 'Yes (' + difference.toFixed(2) + ')' : 'No';
 
-    // Update VCF Storage Entitled cell
-    summaryRow.cells[3].textContent = totalCoresForLicenses.toFixed(2);
-    
-    // Call calculateVsanAddOnCapacity function
+        // Call calculateVsanAddOnCapacity function
     calculateVsanAddOnCapacity(totalRawStorage, parseFloat(summaryRow.cells[3].textContent));
 }
 
