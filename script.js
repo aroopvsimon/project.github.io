@@ -81,16 +81,16 @@ function updateSummaryTable() {
     // Update summary table cells
     summaryRow.cells[0].textContent = totalRawStorage.toFixed(2);
     summaryRow.cells[1].textContent = totalCoresForLicenses.toFixed(2);
-    summaryRow.cells[2].textContent = totalCoresForLicenses.toFixed(2);
 
     // Call calculateVsanAddOnCapacity function
-    calculateVsanAddOnCapacity(totalRawStorage, parseFloat(summaryRow.cells[3].textContent));
+    calculateVsanAddOnCapacity(totalRawStorage, parseFloat(summaryRow.cells[2].textContent));
 
     // Calculate and set vSAN Add On Capacity Required and Difference
     var vsanAddOnCapacityRequiredCell = summaryRow.cells[3];
     var difference = totalRawStorage - totalCoresForLicenses;
-    summaryRow.cells[3].textContent = difference > 0 ? 'Yes (' + difference.toFixed(2) + ')' : 'No';
+    vsanAddOnCapacityRequiredCell.textContent = difference > 0 ? 'Yes (' + difference.toFixed(2) + ')' : 'No';
 }
+
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     var table = document.getElementById('user-inputs-table');
