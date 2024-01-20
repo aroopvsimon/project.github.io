@@ -84,44 +84,6 @@ function updateSummaryTable() {
     summaryRow.cells[2].textContent = totalCoresForLicenses.toFixed(2); // Updated to match the sum of 'Total number of cores per Node'
 }
 
-function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
-    var table = document.getElementById('user-inputs-table');
-    var newRow = table.insertRow(table.rows.length);
-    var inputsCell = newRow.insertCell(0);
-    var valueCell = newRow.insertCell(1);
-
-    // Add user variables and inputs to the third table
-    //newRow = table.insertRow(table.rows.length);
-    inputsCell = newRow.insertCell(0);
-    valueCell = newRow.insertCell(1);
-    inputsCell.textContent = 'Total Number of CPU per node';
-    valueCell.textContent = cpus;
-
-    newRow = table.insertRow(table.rows.length);
-    inputsCell = newRow.insertCell(0);
-    valueCell = newRow.insertCell(1);
-    inputsCell.textContent = 'Number of Cores per CPU (per Node)';
-    valueCell.textContent = cores;
-
-    newRow = table.insertRow(table.rows.length);
-    inputsCell = newRow.insertCell(0);
-    valueCell = newRow.insertCell(1);
-    inputsCell.textContent = 'Count of capacity drives per Node';
-    valueCell.textContent = drives;
-
-    newRow = table.insertRow(table.rows.length);
-    inputsCell = newRow.insertCell(0);
-    valueCell = newRow.insertCell(1);
-    inputsCell.textContent = 'Size of each capacity drive in TB per Node';
-    valueCell.textContent = size;
-
-    newRow = table.insertRow(table.rows.length);
-    inputsCell = newRow.insertCell(0);
-    valueCell = newRow.insertCell(1);
-    inputsCell.textContent = 'Number of Years For Which Quote Required';
-    valueCell.textContent = quoteYears;
-}
-
 // Add a new single-row, three-column table for 'vSAN Add-On Capacity'
 function addVsanCapacityTable(addonCapacity) {
     var vsanTable = document.getElementById('vsan-add-on-capacity-table');
@@ -162,4 +124,42 @@ function calculateVsanAddOnCapacity(totalRawStorage, vcfStorageEntitled) {
     };
 
     addVsanCapacityTable(addonCapacity);
+}
+
+function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
+    var table = document.getElementById('user-inputs-table');
+    var newRow = table.insertRow(table.rows.length);
+    var inputsCell = newRow.insertCell(0);
+    var valueCell = newRow.insertCell(1);
+
+    // Add user variables and inputs to the third table
+    //newRow = table.insertRow(table.rows.length);
+    inputsCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    inputsCell.textContent = 'Total Number of CPU per node';
+    valueCell.textContent = cpus;
+
+    newRow = table.insertRow(table.rows.length);
+    inputsCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    inputsCell.textContent = 'Number of Cores per CPU (per Node)';
+    valueCell.textContent = cores;
+
+    newRow = table.insertRow(table.rows.length);
+    inputsCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    inputsCell.textContent = 'Count of capacity drives per Node';
+    valueCell.textContent = drives;
+
+    newRow = table.insertRow(table.rows.length);
+    inputsCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    inputsCell.textContent = 'Size of each capacity drive in TB per Node';
+    valueCell.textContent = size;
+
+    newRow = table.insertRow(table.rows.length);
+    inputsCell = newRow.insertCell(0);
+    valueCell = newRow.insertCell(1);
+    inputsCell.textContent = 'Number of Years For Which Quote Required';
+    valueCell.textContent = quoteYears;
 }
