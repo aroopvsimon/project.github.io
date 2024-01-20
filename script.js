@@ -86,7 +86,7 @@ function updateSummaryTable() {
     calculateVsanAddOnCapacity(totalRawStorage, parseFloat(summaryRow.cells[3].textContent));
 
     // Calculate and set vSAN Add On Capacity Required and Difference
-    var vsanAddOnCapacityRequiredCell = summaryRow.cells[2];
+    var vsanAddOnCapacityRequiredCell = summaryRow.cells[3];
     var difference = totalRawStorage - totalCoresForLicenses;
 
     // Swap the order of the third and fourth columns
