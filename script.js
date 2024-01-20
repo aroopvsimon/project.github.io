@@ -96,7 +96,7 @@ function addVsanCapacityTable(addonCapacity) {
         var header3 = headerRow.insertCell(2);
 
         // Set header cells
-        header1.textContent = 'vSAN Add-On Capacity';
+        header1.textContent = 'vSAN Add-On Capacity Calculator';
         header2.textContent = 'Add-On Required?';
         header3.textContent = 'Difference (TiB)';
     }
@@ -118,7 +118,7 @@ function calculateVsanAddOnCapacity(totalRawStorage, vcfStorageEntitled) {
     console.log('Total Raw Storage:', totalRawStorage);
     console.log('VCF Storage Entitled:', vcfStorageEntitled);
     var addonCapacity = {
-        label: 'vSAN Add-On Capacity',
+        label: 'vSAN Add-On Capacity Calculator',
         required: totalRawStorage > vcfStorageEntitled,
         difference: Math.max(0, totalRawStorage - vcfStorageEntitled)
     };
