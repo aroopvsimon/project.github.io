@@ -92,8 +92,16 @@ function updateSummaryTable() {
     vsanAddOnCapacityRequiredCell.textContent = difference > 0 ? 'Yes (' + difference.toFixed(2) + ')' : 'No';
 
     // Calculate and set VVF Licensing vSAN Add On Capacity Required
-    var vvfLicensingCapacityCell = summaryRow.cells[4];
-    vvfLicensingCapacityCell.textContent = totalRawStorage.toFixed(2);
+    //var vvfLicensingCapacityCell = summaryRow.cells[4];
+    //vvfLicensingCapacityCell.textContent = totalRawStorage.toFixed(2);
+	var vvfLicensingCapacityCell = summaryRow.cells[4];
+	var totalNumberCPU = parseInt(document.getElementById('cpus').value);
+    	var minVvfLicensingCapacity = totalNumberCPU * 8;
+
+	vvfLicensingCapacityCell.textContent = totalRawStorage < minVvfLicensingCapacity ?
+        minVvfLicensingCapacity.toFixed(2) :
+        totalRawStorage.toFixed(2);
+
 }
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
