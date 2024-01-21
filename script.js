@@ -4,6 +4,7 @@ var userData = [];
 // Initialize running total for vvfLicensingCapacity
 var runningVvfLicensingCapacity = 0;
 
+
 function addRow() {
     var cpusInput = document.getElementById('cpus');
     var coresInput = document.getElementById('cores');
