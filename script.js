@@ -90,8 +90,11 @@ function updateSummaryTable() {
     var vsanAddOnCapacityRequiredCell = summaryRow.cells[3];
     var difference = totalRawStorage - totalCoresForLicenses;
     vsanAddOnCapacityRequiredCell.textContent = difference > 0 ? 'Yes (' + difference.toFixed(2) + ')' : 'No';
-}
 
+    // Calculate and set VVF Licensing vSAN Add On Capacity Required
+    var vvfLicensingCapacityCell = summaryRow.cells[3];
+    vvfLicensingCapacityCell.textContent = totalRawStorage.toFixed(2);
+}
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
     var table = document.getElementById('user-inputs-table');
