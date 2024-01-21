@@ -84,7 +84,7 @@ function updateSummaryTable() {
     summaryRow.cells[2].textContent = totalCoresForLicenses.toFixed(2);
 
     // Call calculateVsanAddOnCapacity function
-    calculateVsanAddOnCapacity(totalRawStorage, parseFloat(summaryRow.cells[3].textContent));
+    calculateVsanAddOnCapacity(totalRawStorage, parseFloat(summaryRow.cells[2].textContent));
 
     // Calculate and set vSAN Add On Capacity Required and Difference
     var vsanAddOnCapacityRequiredCell = summaryRow.cells[3];
