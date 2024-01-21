@@ -98,10 +98,16 @@ function updateSummaryTable() {
 	var totalNumberCPU = parseInt(document.getElementById('cpus').value);
     	var minVvfLicensingCapacity = totalNumberCPU * 8;
 
-	vvfLicensingCapacityCell.textContent = totalRawStorage < minVvfLicensingCapacity ?
+	//vvfLicensingCapacityCell.textContent = totalRawStorage < minVvfLicensingCapacity ?
+        //minVvfLicensingCapacity.toFixed(2) :
+        //totalRawStorage.toFixed(2);
+
+ 	var currentRowVvfLicensingCapacity = totalRawStorage < minVvfLicensingCapacity ?
         minVvfLicensingCapacity.toFixed(2) :
         totalRawStorage.toFixed(2);
 
+    runningVvfLicensingCapacity += parseFloat(currentRowVvfLicensingCapacity);
+    vvfLicensingCapacityCell.textContent = runningVvfLicensingCapacity.toFixed(2);
 }
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
