@@ -92,7 +92,7 @@ function updateSummaryTable() {
     vsanAddOnCapacityRequiredCell.textContent = difference > 0 ? 'Yes (' + difference.toFixed(2) + ')' : 'No';
 
     // Calculate and set VVF Licensing vSAN Add On Capacity Required
-    var vvfLicensingCapacityCell = summaryRow.cells[3];
+    var vvfLicensingCapacityCell = summaryRow.cells[4];
     vvfLicensingCapacityCell.textContent = totalRawStorage.toFixed(2);
 }
 
