@@ -104,8 +104,8 @@ function updateSummaryTable() {
     minVvfLicensingCapacity.toFixed(2) :
     totalRawStorage.toFixed(2);
 
-    runningVvfLicensingCapacity += parseFloat(currentRowVvfLicensingCapacity);
-    vvfLicensingCapacityCell.textContent = runningVvfLicensingCapacity.toFixed(2);
+    // runningVvfLicensingCapacity += parseFloat(currentRowVvfLicensingCapacity);
+    // vvfLicensingCapacityCell.textContent = runningVvfLicensingCapacity.toFixed(2);
 }
 
 function addUserInputsToTable(cpus, cores, drives, size, quoteYears) {
